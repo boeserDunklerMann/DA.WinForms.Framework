@@ -8,5 +8,6 @@ namespace Bookstore.Model
 		public string BookName { get; set; }
 		public string Author { get; set; }
 		public decimal Price { get; set; }
+		public bool IsHardcover { get; set; }
 	}
 }

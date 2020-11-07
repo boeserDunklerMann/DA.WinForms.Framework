@@ -19,18 +19,25 @@ namespace DA.WinForms.Framework.Test
 		public BookForm()
 		{
 			InitializeComponent();
-
-			// Bind the TextBoxes to our DataObject
-			BindingCreator<Book> bc = new BindingCreator<Book>(_myBook);
-			txtAuthor.DataBindings.Add(bc.CreateBinding(nameof(Book.Author)));
-			txtTitle.DataBindings.Add(bc.CreateBinding(nameof(Book.BookName)));
-			txtPrice.DataBindings.Add(bc.CreateBinding(nameof(Book.Price), true));
+			Bind();
 		}
 
 		private void btnHitme_Click(object sender, EventArgs e)
 		{
 			// the changes are now in our dataobject. see!
-			MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}");
+			string hardcover = _myBook.IsHardcover ? "yes" : "no";
+			MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}");
+		}
+
+		private void Bind()
+		{
+			// Bind the TextBoxes to our DataObject
+			BindingCreator<Book> bc = new BindingCreator<Book>(_myBook);
+			txtAuthor.DataBindings.Add(bc.CreateBinding(nameof(Book.Author)));
+			txtTitle.DataBindings.Add(bc.CreateBinding(nameof(Book.BookName)));
+			txtPrice.DataBindings.Add(bc.CreateBinding(nameof(Book.Price), true));
+			// bind a bool
+			bc.CreateBinding(nameof(Book.IsHardcover), cbHardcover);
 		}
 	}
 }

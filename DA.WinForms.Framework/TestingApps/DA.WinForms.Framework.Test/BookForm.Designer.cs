@@ -29,18 +29,20 @@
 		private void InitializeComponent()
 		{
 			this.gbBook = new System.Windows.Forms.GroupBox();
+			this.btnHitme = new System.Windows.Forms.Button();
 			this.lbPrice = new System.Windows.Forms.Label();
 			this.txtPrice = new System.Windows.Forms.TextBox();
 			this.lbAuthor = new System.Windows.Forms.Label();
 			this.lbName = new System.Windows.Forms.Label();
 			this.txtAuthor = new System.Windows.Forms.TextBox();
 			this.txtTitle = new System.Windows.Forms.TextBox();
-			this.btnHitme = new System.Windows.Forms.Button();
+			this.cbHardcover = new System.Windows.Forms.CheckBox();
 			this.gbBook.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gbBook
 			// 
+			this.gbBook.Controls.Add(this.cbHardcover);
 			this.gbBook.Controls.Add(this.btnHitme);
 			this.gbBook.Controls.Add(this.lbPrice);
 			this.gbBook.Controls.Add(this.txtPrice);
@@ -50,10 +52,22 @@
 			this.gbBook.Controls.Add(this.txtTitle);
 			this.gbBook.Location = new System.Drawing.Point(177, 79);
 			this.gbBook.Name = "gbBook";
-			this.gbBook.Size = new System.Drawing.Size(268, 168);
+			this.gbBook.Size = new System.Drawing.Size(268, 212);
 			this.gbBook.TabIndex = 0;
 			this.gbBook.TabStop = false;
 			this.gbBook.Text = "Book";
+			// 
+			// btnHitme
+			// 
+			this.btnHitme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnHitme.Location = new System.Drawing.Point(6, 183);
+			this.btnHitme.Name = "btnHitme";
+			this.btnHitme.Size = new System.Drawing.Size(256, 23);
+			this.btnHitme.TabIndex = 6;
+			this.btnHitme.Text = "do same changes and hit me!";
+			this.btnHitme.UseVisualStyleBackColor = true;
+			this.btnHitme.Click += new System.EventHandler(this.btnHitme_Click);
 			// 
 			// lbPrice
 			// 
@@ -103,15 +117,15 @@
 			this.txtTitle.Size = new System.Drawing.Size(100, 23);
 			this.txtTitle.TabIndex = 0;
 			// 
-			// btnHitme
+			// cbHardcover
 			// 
-			this.btnHitme.Location = new System.Drawing.Point(6, 121);
-			this.btnHitme.Name = "btnHitme";
-			this.btnHitme.Size = new System.Drawing.Size(256, 23);
-			this.btnHitme.TabIndex = 6;
-			this.btnHitme.Text = "do same changes and hit me!";
-			this.btnHitme.UseVisualStyleBackColor = true;
-			this.btnHitme.Click += new System.EventHandler(this.btnHitme_Click);
+			this.cbHardcover.AutoSize = true;
+			this.cbHardcover.Location = new System.Drawing.Point(82, 122);
+			this.cbHardcover.Name = "cbHardcover";
+			this.cbHardcover.Size = new System.Drawing.Size(86, 19);
+			this.cbHardcover.TabIndex = 7;
+			this.cbHardcover.Text = "Hardcover?";
+			this.cbHardcover.UseVisualStyleBackColor = true;
 			// 
 			// BookForm
 			// 
@@ -137,6 +151,7 @@
 		private System.Windows.Forms.Label lbPrice;
 		private System.Windows.Forms.TextBox txtPrice;
 		private System.Windows.Forms.Button btnHitme;
+		private System.Windows.Forms.CheckBox cbHardcover;
 	}
 }
 
