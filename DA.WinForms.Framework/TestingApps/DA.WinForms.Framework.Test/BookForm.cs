@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DA.WinForms.Framework;
 using Bookstore.Model;
+using DA.WinForms.Framework.Model;
 
 namespace DA.WinForms.Framework.Test
 {
-	public partial class BookForm : Form
+	public partial class BookForm : Form, IBindableControl
 	{
+		DataClassBase IBindableControl.DataSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
 		// TODO: Get this from Presenter or elsewhere
 		Book _myBook = new Book() { Author = "Stephen King",
 									BookName = "Pet Cemetary",
 									Price = 12.99M,
-			Id = Guid.Empty,
-			IsHardcover=false,
-			Category="Love story" };
+									Id = Guid.Empty,
+									IsHardcover=false,
+									Category="Love story" };
 
 		public BookForm()
 		{
@@ -34,11 +37,12 @@ namespace DA.WinForms.Framework.Test
 			if (_myBook.Validate())
 			{
 				string hardcover = _myBook.IsHardcover ? "yes" : "no";
-				MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}");
+				MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}\r\n" +
+					$"Category: {_myBook.Category}");
 			}
 		}
 
-		private void Bind()
+		public void Bind()
 		{
 			// Bind the TextBoxes to our DataObject
 			BindingCreator<Book> bc = new BindingCreator<Book>(_myBook);
