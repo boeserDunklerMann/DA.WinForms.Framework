@@ -11,6 +11,7 @@ namespace DA.WinForms.Framework
 	/// </ChangeLog>
 	/// <summary>
 	/// Performance: Aufwändige Reflectorings nur 1x durchführen und dann in einem Cache ablegen
+	/// do performance-consumable reflectorings only once and cache the results
 	/// </summary>
 	public static class ReflectoringCache
 	{
@@ -29,6 +30,7 @@ namespace DA.WinForms.Framework
 
 		/// <summary>
 		/// Analysiert das Assenbly, in dem sich die Klasse selbst befindet
+		/// analyses the assembly of this class
 		/// </summary>
 		private static void AnalyzeAssembly()
 		{
@@ -43,10 +45,12 @@ namespace DA.WinForms.Framework
 
 		/// <summary>
 		/// Liefert Informationen zu einer Property
+		/// Gather informations for a property
 		/// </summary>
-		/// <param name="type">Typ, zu dem die Property gehört</param>
-		/// <param name="propName">Name der Property</param>
-		/// <returns>Informationen zur Property</returns>
+		/// <param name="type">Typ, zu dem die Property gehört
+		/// the type of the property</param>
+		/// <param name="propName">name of the property</param>
+		/// <returns>Informations of the property</returns>
 		public static PropertyInfo GetPropertyInfo(Type type, string propName)
 		{
 			if (properties == null)
