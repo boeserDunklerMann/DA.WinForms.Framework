@@ -18,16 +18,18 @@ namespace DA.WinForms.Framework.Test
 		DataClassBase IBindableControl.DataSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		// TODO: Get this from Presenter or elsewhere
+		/*
 		Book _myBook = new Book() { Author = "Stephen King",
 									BookName = "Pet Cemetary",
 									Price = 12.99M,
-									Id = Guid.Empty,
 									IsHardcover=false,
 									Category="Love story" };
-
+		*/
+		Book _myBook;
 		public BookForm()
 		{
 			InitializeComponent();
+			_myBook = DA.Dba.MongoDb.BookService.Instance.Get()[0];
 			Bind();
 		}
 
@@ -39,6 +41,7 @@ namespace DA.WinForms.Framework.Test
 				string hardcover = _myBook.IsHardcover ? "yes" : "no";
 				MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}\r\n" +
 					$"Category: {_myBook.Category}");
+				DA.Dba.MongoDb.BookService.Instance.Update(_myBook.Id, _myBook);
 			}
 		}
 

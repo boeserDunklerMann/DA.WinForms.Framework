@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework.Test"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework", "DA.WinForms.Framework\DA.WinForms.Framework.csproj", "{D45F9E65-C614-47C5-8D11-07E995165573}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{AA3F2203-25A2-4DBC-BEAB-6C6C52DBB727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.Dba.MongoDb", "DA.Dba.MongoDb\DA.Dba.MongoDb.csproj", "{8240E539-2451-4CF5-9D71-B700D87E6CCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{D45F9E65-C614-47C5-8D11-07E995165573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D45F9E65-C614-47C5-8D11-07E995165573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D45F9E65-C614-47C5-8D11-07E995165573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +46,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E03E1C3F-9B31-4996-B7F4-EDCE4110F018} = {DED7E309-DEFF-4E3E-AC52-590EA05C0B0B}
 		{9BEAD855-448B-4023-8274-33CB07F9DEE9} = {886072FC-A34A-4627-B50C-2CA729E5595B}
+		{8240E539-2451-4CF5-9D71-B700D87E6CCC} = {AA3F2203-25A2-4DBC-BEAB-6C6C52DBB727}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9A6CCAB-A887-465A-904C-56234921BEB2}
