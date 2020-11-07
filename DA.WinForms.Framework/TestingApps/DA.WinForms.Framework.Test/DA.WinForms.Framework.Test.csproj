@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DA.WinForms.Framework\DA.WinForms.Framework.csproj" />
+    <ProjectReference Include="..\..\Examples\Bookstore.Model\Bookstore.Model.csproj" />
+  </ItemGroup>
+
+</Project>

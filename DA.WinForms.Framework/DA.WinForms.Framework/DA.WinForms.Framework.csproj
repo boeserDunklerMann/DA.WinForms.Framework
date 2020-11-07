@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
+	<Authors>DA</Authors>
+	<Product>WinForms-Framework for binding UI-Elements</Product>
+	<Description>bind Textboxes easily to dataobjects using reflection</Description>
+	<PackageProjectUrl>https://github.com/boeserDunklerMann/DA.WinForms.Framework</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/boeserDunklerMann/DA.WinForms.Framework</RepositoryUrl>
+	<RepositoryType>GitHub</RepositoryType>
+	<PackageTags>WinForms Databinding Reflection</PackageTags>
+  </PropertyGroup>
+
+</Project>

@@ -2,7 +2,7 @@
 
 namespace Bookstore.Model
 {
-	public class Book
+	public class Book : DA.WinForms.Framework.DataClassBase
 	{
 		public Guid Id { get; set; }
 		public string BookName { get; set; }
