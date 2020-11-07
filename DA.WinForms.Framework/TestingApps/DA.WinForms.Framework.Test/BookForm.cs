@@ -15,7 +15,13 @@ namespace DA.WinForms.Framework.Test
 	public partial class BookForm : Form
 	{
 		// TODO: Get this from Presenter or elsewhere
-		Book _myBook = new Book() { Author = "Stephen King", BookName = "Pet Cemetary", Price = 12.99M, Id = Guid.Empty };
+		Book _myBook = new Book() { Author = "Stephen King",
+									BookName = "Pet Cemetary",
+									Price = 12.99M,
+			Id = Guid.Empty,
+			IsHardcover=false,
+			Category="Love story" };
+
 		public BookForm()
 		{
 			InitializeComponent();
@@ -25,8 +31,11 @@ namespace DA.WinForms.Framework.Test
 		private void btnHitme_Click(object sender, EventArgs e)
 		{
 			// the changes are now in our dataobject. see!
-			string hardcover = _myBook.IsHardcover ? "yes" : "no";
-			MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}");
+			if (_myBook.Validate())
+			{
+				string hardcover = _myBook.IsHardcover ? "yes" : "no";
+				MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}");
+			}
 		}
 
 		private void Bind()
@@ -38,6 +47,10 @@ namespace DA.WinForms.Framework.Test
 			txtPrice.DataBindings.Add(bc.CreateBinding(nameof(Book.Price), true));
 			// bind a bool
 			bc.CreateBinding(nameof(Book.IsHardcover), cbHardcover);
+			// bind a combobox with validvalues
+			bc.CreateBinding(nameof(Book.Category), cbCategory);
+			// now fill them
+			ComboboxFiller.Fill(this);
 		}
 	}
 }

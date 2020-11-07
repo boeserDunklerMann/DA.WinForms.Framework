@@ -29,13 +29,13 @@ namespace DA.WinForms.Framework
 		private static List<TypeProp> properties;
 
 		/// <summary>
-		/// Analysiert das Assenbly, in dem sich die Klasse selbst befindet
+		/// Analysiert das Assembly, in dem sich die Klasse selbst befindet
 		/// analyses the assembly of this class
 		/// </summary>
 		private static void AnalyzeAssembly()
 		{
 			Assembly assembly = Assembly.GetAssembly(typeof(ReflectoringCache));
-			IEnumerable<Type> types = assembly.GetTypes().Where(t => typeof(DataClassBase).IsAssignableFrom(t));
+			IEnumerable<Type> types = assembly.GetTypes().Where(t => typeof(Model.DataClassBase).IsAssignableFrom(t));
 			properties = new List<TypeProp>();
 			foreach (Type type in types)
 			{

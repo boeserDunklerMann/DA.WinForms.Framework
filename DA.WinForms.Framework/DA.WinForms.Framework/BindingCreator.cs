@@ -79,7 +79,9 @@ namespace DA.WinForms.Framework
 		/// <returns>the propertyname as string</returns>
 		private string FindControlsPropertyName(Control control)
 		{
-			if (control is TextBox)
+			if ((control is TextBox)
+				|| (control is ComboBox)
+				)
 				return "Text";
 			if (control is CheckBox)
 				return "Checked";

@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.gbBook = new System.Windows.Forms.GroupBox();
+			this.cbHardcover = new System.Windows.Forms.CheckBox();
 			this.btnHitme = new System.Windows.Forms.Button();
 			this.lbPrice = new System.Windows.Forms.Label();
 			this.txtPrice = new System.Windows.Forms.TextBox();
@@ -36,12 +37,15 @@
 			this.lbName = new System.Windows.Forms.Label();
 			this.txtAuthor = new System.Windows.Forms.TextBox();
 			this.txtTitle = new System.Windows.Forms.TextBox();
-			this.cbHardcover = new System.Windows.Forms.CheckBox();
+			this.cbCategory = new System.Windows.Forms.ComboBox();
+			this.lbCat = new System.Windows.Forms.Label();
 			this.gbBook.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gbBook
 			// 
+			this.gbBook.Controls.Add(this.lbCat);
+			this.gbBook.Controls.Add(this.cbCategory);
 			this.gbBook.Controls.Add(this.cbHardcover);
 			this.gbBook.Controls.Add(this.btnHitme);
 			this.gbBook.Controls.Add(this.lbPrice);
@@ -56,6 +60,16 @@
 			this.gbBook.TabIndex = 0;
 			this.gbBook.TabStop = false;
 			this.gbBook.Text = "Book";
+			// 
+			// cbHardcover
+			// 
+			this.cbHardcover.AutoSize = true;
+			this.cbHardcover.Location = new System.Drawing.Point(82, 122);
+			this.cbHardcover.Name = "cbHardcover";
+			this.cbHardcover.Size = new System.Drawing.Size(86, 19);
+			this.cbHardcover.TabIndex = 7;
+			this.cbHardcover.Text = "Hardcover?";
+			this.cbHardcover.UseVisualStyleBackColor = true;
 			// 
 			// btnHitme
 			// 
@@ -117,15 +131,22 @@
 			this.txtTitle.Size = new System.Drawing.Size(100, 23);
 			this.txtTitle.TabIndex = 0;
 			// 
-			// cbHardcover
+			// cbCategory
 			// 
-			this.cbHardcover.AutoSize = true;
-			this.cbHardcover.Location = new System.Drawing.Point(82, 122);
-			this.cbHardcover.Name = "cbHardcover";
-			this.cbHardcover.Size = new System.Drawing.Size(86, 19);
-			this.cbHardcover.TabIndex = 7;
-			this.cbHardcover.Text = "Hardcover?";
-			this.cbHardcover.UseVisualStyleBackColor = true;
+			this.cbCategory.FormattingEnabled = true;
+			this.cbCategory.Location = new System.Drawing.Point(82, 148);
+			this.cbCategory.Name = "cbCategory";
+			this.cbCategory.Size = new System.Drawing.Size(121, 23);
+			this.cbCategory.TabIndex = 8;
+			// 
+			// lbCat
+			// 
+			this.lbCat.AutoSize = true;
+			this.lbCat.Location = new System.Drawing.Point(22, 151);
+			this.lbCat.Name = "lbCat";
+			this.lbCat.Size = new System.Drawing.Size(55, 15);
+			this.lbCat.TabIndex = 9;
+			this.lbCat.Text = "Category";
 			// 
 			// BookForm
 			// 
@@ -152,6 +173,8 @@
 		private System.Windows.Forms.TextBox txtPrice;
 		private System.Windows.Forms.Button btnHitme;
 		private System.Windows.Forms.CheckBox cbHardcover;
+		private System.Windows.Forms.Label lbCat;
+		private System.Windows.Forms.ComboBox cbCategory;
 	}
 }
 
