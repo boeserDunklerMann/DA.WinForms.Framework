@@ -1,63 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DA.WinForms.Framework;
-using Bookstore.Model;
+﻿using Bookstore.Model;
 using DA.WinForms.Framework.Model;
+using DA.WinForms.Framework.Test.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DA.WinForms.Framework.Test
 {
-	public partial class BookForm : Form, IBindableControl
+	/// <ChangeLog>
+	/// <Create Datum="07.11.2020" Entwickler="DA" />
+	/// </ChangeLog>
+	/// <summary>
+	/// Interaction logic for the view
+	/// </summary>
+	public partial class BookForm : Form, IBindableControl, IBookStore, IBookDetail
 	{
 		DataClassBase IBindableControl.DataSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		// TODO: Get this from Presenter or elsewhere
-		/*
-		Book _myBook = new Book() { Author = "Stephen King",
-									BookName = "Pet Cemetary",
-									Price = 12.99M,
-									IsHardcover=false,
-									Category="Love story" };
-		*/
+		/// <summary>
+		/// Book object for displaying in the detailed section
+		/// </summary>
 		Book _myBook;
+
+		private readonly Presenter.BookstorePresenter bookstorePresenter;
 		public BookForm()
 		{
+			bookstorePresenter = new Presenter.BookstorePresenter(this);
 			InitializeComponent();
-			_myBook = DA.Dba.MongoDb.BookService.Instance.Get()[0];
+			bookstorePresenter.LoadBooks();
 			Bind();
 		}
 
 		private void btnHitme_Click(object sender, EventArgs e)
 		{
 			// the changes are now in our dataobject. see!
+			// TODO: Validation into Presenter
 			if (_myBook.Validate())
 			{
 				string hardcover = _myBook.IsHardcover ? "yes" : "no";
 				MessageBox.Show($"Author: {_myBook.Author}\r\nTitle: {_myBook.BookName}\r\nPrice is: {_myBook.Price}\r\nIS a hardcover: {hardcover}\r\n" +
 					$"Category: {_myBook.Category}");
-				DA.Dba.MongoDb.BookService.Instance.Update(_myBook.Id, _myBook);
+				bookstorePresenter.Save();
+			}
+		}
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Binds the detailview-conrols
+		/// </summary>
+		public void Bind()
+		{
+			if (_myBook != null)
+			{
+				// clear all bindings
+				BindingCreator<Book>.ClearAllBindings(this);
+				// Bind the TextBoxes to our DataObject
+				BindingCreator<Book> bc = new BindingCreator<Book>(_myBook);
+				txtAuthor.DataBindings.Add(bc.CreateBinding(nameof(Book.Author)));
+				txtTitle.DataBindings.Add(bc.CreateBinding(nameof(Book.BookName)));
+				txtPrice.DataBindings.Add(bc.CreateBinding(nameof(Book.Price), true));
+				// bind a bool
+				bc.CreateBinding(nameof(Book.IsHardcover), cbHardcover);
+				// bind a combobox with validvalues
+				bc.CreateBinding(nameof(Book.Category), cbCategory);
+				// now fill them
+				ComboboxFiller.Fill(this);
 			}
 		}
 
-		public void Bind()
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Displays a list of books
+		/// </summary>
+		/// <param name="books">the books</param>
+		public void DisplayBooks(IEnumerable<Book> books)
 		{
-			// Bind the TextBoxes to our DataObject
-			BindingCreator<Book> bc = new BindingCreator<Book>(_myBook);
-			txtAuthor.DataBindings.Add(bc.CreateBinding(nameof(Book.Author)));
-			txtTitle.DataBindings.Add(bc.CreateBinding(nameof(Book.BookName)));
-			txtPrice.DataBindings.Add(bc.CreateBinding(nameof(Book.Price), true));
-			// bind a bool
-			bc.CreateBinding(nameof(Book.IsHardcover), cbHardcover);
-			// bind a combobox with validvalues
-			bc.CreateBinding(nameof(Book.Category), cbCategory);
-			// now fill them
-			ComboboxFiller.Fill(this);
+			dgvBooks.DataSource = books.ToList();
+		}
+
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Opens the selected book in the detailview
+		/// </summary>
+		private void dgvBooks_Click(object sender, EventArgs e)
+		{
+			Book selectedBook = (Book)dgvBooks.CurrentRow?.DataBoundItem;
+			bookstorePresenter.SelectBook(selectedBook, this);
+		}
+
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Selects a book
+		/// </summary>
+		public void SelectBook(Book book)
+		{
+			_myBook = book;
+			Bind();
 		}
 	}
 }

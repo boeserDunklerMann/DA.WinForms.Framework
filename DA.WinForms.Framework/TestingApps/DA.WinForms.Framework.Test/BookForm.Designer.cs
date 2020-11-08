@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.gbBook = new System.Windows.Forms.GroupBox();
+			this.lbCat = new System.Windows.Forms.Label();
+			this.cbCategory = new System.Windows.Forms.ComboBox();
 			this.cbHardcover = new System.Windows.Forms.CheckBox();
 			this.btnHitme = new System.Windows.Forms.Button();
 			this.lbPrice = new System.Windows.Forms.Label();
@@ -37,13 +39,15 @@
 			this.lbName = new System.Windows.Forms.Label();
 			this.txtAuthor = new System.Windows.Forms.TextBox();
 			this.txtTitle = new System.Windows.Forms.TextBox();
-			this.cbCategory = new System.Windows.Forms.ComboBox();
-			this.lbCat = new System.Windows.Forms.Label();
+			this.dgvBooks = new System.Windows.Forms.DataGridView();
+			this.lbBooks = new System.Windows.Forms.Label();
 			this.gbBook.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gbBook
 			// 
+			this.gbBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.gbBook.Controls.Add(this.lbCat);
 			this.gbBook.Controls.Add(this.cbCategory);
 			this.gbBook.Controls.Add(this.cbHardcover);
@@ -54,12 +58,29 @@
 			this.gbBook.Controls.Add(this.lbName);
 			this.gbBook.Controls.Add(this.txtAuthor);
 			this.gbBook.Controls.Add(this.txtTitle);
-			this.gbBook.Location = new System.Drawing.Point(177, 79);
+			this.gbBook.Location = new System.Drawing.Point(258, 12);
 			this.gbBook.Name = "gbBook";
 			this.gbBook.Size = new System.Drawing.Size(268, 212);
 			this.gbBook.TabIndex = 0;
 			this.gbBook.TabStop = false;
 			this.gbBook.Text = "Book";
+			// 
+			// lbCat
+			// 
+			this.lbCat.AutoSize = true;
+			this.lbCat.Location = new System.Drawing.Point(22, 151);
+			this.lbCat.Name = "lbCat";
+			this.lbCat.Size = new System.Drawing.Size(55, 15);
+			this.lbCat.TabIndex = 9;
+			this.lbCat.Text = "Category";
+			// 
+			// cbCategory
+			// 
+			this.cbCategory.FormattingEnabled = true;
+			this.cbCategory.Location = new System.Drawing.Point(82, 148);
+			this.cbCategory.Name = "cbCategory";
+			this.cbCategory.Size = new System.Drawing.Size(121, 23);
+			this.cbCategory.TabIndex = 8;
 			// 
 			// cbHardcover
 			// 
@@ -131,34 +152,40 @@
 			this.txtTitle.Size = new System.Drawing.Size(100, 23);
 			this.txtTitle.TabIndex = 0;
 			// 
-			// cbCategory
+			// dgvBooks
 			// 
-			this.cbCategory.FormattingEnabled = true;
-			this.cbCategory.Location = new System.Drawing.Point(82, 148);
-			this.cbCategory.Name = "cbCategory";
-			this.cbCategory.Size = new System.Drawing.Size(121, 23);
-			this.cbCategory.TabIndex = 8;
+			this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvBooks.Location = new System.Drawing.Point(12, 29);
+			this.dgvBooks.Name = "dgvBooks";
+			this.dgvBooks.Size = new System.Drawing.Size(240, 150);
+			this.dgvBooks.TabIndex = 1;
+			this.dgvBooks.Text = "dataGridView1";
+			this.dgvBooks.Click += new System.EventHandler(this.dgvBooks_Click);
 			// 
-			// lbCat
+			// lbBooks
 			// 
-			this.lbCat.AutoSize = true;
-			this.lbCat.Location = new System.Drawing.Point(22, 151);
-			this.lbCat.Name = "lbCat";
-			this.lbCat.Size = new System.Drawing.Size(55, 15);
-			this.lbCat.TabIndex = 9;
-			this.lbCat.Text = "Category";
+			this.lbBooks.AutoSize = true;
+			this.lbBooks.Location = new System.Drawing.Point(12, 11);
+			this.lbBooks.Name = "lbBooks";
+			this.lbBooks.Size = new System.Drawing.Size(60, 15);
+			this.lbBooks.TabIndex = 2;
+			this.lbBooks.Text = "Bookstore";
 			// 
 			// BookForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(545, 233);
+			this.Controls.Add(this.lbBooks);
+			this.Controls.Add(this.dgvBooks);
 			this.Controls.Add(this.gbBook);
 			this.Name = "BookForm";
 			this.Text = "Books";
 			this.gbBook.ResumeLayout(false);
 			this.gbBook.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -175,6 +202,8 @@
 		private System.Windows.Forms.CheckBox cbHardcover;
 		private System.Windows.Forms.Label lbCat;
 		private System.Windows.Forms.ComboBox cbCategory;
+		private System.Windows.Forms.DataGridView dgvBooks;
+		private System.Windows.Forms.Label lbBooks;
 	}
 }
 

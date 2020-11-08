@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.Control;
 
 namespace DA.WinForms.Framework
 {
 	/// <ChangeLog>
 	/// <Create Datum="07.11.2020" Entwickler="DA" />
+	/// <Change Datum="08.11.2020" Entwickler="DA">ClearAllBindings added</Change>
 	/// </ChangeLog>
 	/// <summary>
 	/// Klasse zum Erstellen von WinForms-Data-Bindings
@@ -86,6 +90,33 @@ namespace DA.WinForms.Framework
 			if (control is CheckBox)
 				return "Checked";
 			return null;
+		}
+
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Clears all bindings of a controls childcontrols
+		/// </summary>
+		public static void ClearAllBindings(Control parentControlToClear)
+		{
+			GetControlsAll(parentControlToClear).ToList().ForEach(c => c.DataBindings.Clear());
+		}
+
+		/// <ChangeLog>
+		/// <Create Datum="08.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Retrieves all Controls, containig in a Form
+		/// </summary>
+		/// <param name="control"></param>
+		/// <returns>List of all Controls</returns>
+		public static IEnumerable<Control> GetControlsAll(Control control)
+		{
+			var controls = control.Controls.Cast<Control>();
+			return controls.SelectMany(ctrl => GetControlsAll(ctrl))
+						   .Concat(controls)
+						   .Where(c => c.GetType() != typeof(ControlCollection));
 		}
 	}
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace DA.WinForms.Framework
 {
 	/// <ChangeLog>
 	/// <Create Datum="07.11.2020" Entwickler="DA" />
+	/// <Change Datum="08.11.2020" Entwickler="DA">Null-check in Fill</Change>
 	/// </ChangeLog>
 	/// <summary>
 	/// Fills all Comboboxes of a control with <see cref="Attributes.ValidValuesAttribute"/>
@@ -26,12 +25,15 @@ namespace DA.WinForms.Framework
 			GetAllComboboxes(parentControl).Where(cbo => cbo.DataBindings.Count > 0).Select(c => new { ComboBox = c, Binding = c.DataBindings[0] })
 				.ToList().ForEach(cb =>
 			{
-				PropertyInfo pi = cb.Binding.DataSource.GetType().GetProperties()
-					.First(cbPropInfo => cbPropInfo.Name == cb.Binding.BindingMemberInfo.BindingMember);
-				Attributes.ValidValuesAttribute vatt = pi.GetCustomAttribute<Attributes.ValidValuesAttribute>();
-				if (vatt != null)
-					cb.ComboBox.DataSource = vatt.ValidValues;
-				cb.Binding.ReadValue();
+				if (cb.Binding?.DataSource != null)
+				{
+					PropertyInfo pi = cb.Binding.DataSource.GetType().GetProperties()
+						.First(cbPropInfo => cbPropInfo.Name == cb.Binding.BindingMemberInfo.BindingMember);
+					Attributes.ValidValuesAttribute vatt = pi.GetCustomAttribute<Attributes.ValidValuesAttribute>();
+					if (vatt != null)
+						cb.ComboBox.DataSource = vatt.ValidValues;
+					cb.Binding.ReadValue();
+				}
 			});
 		}
 
