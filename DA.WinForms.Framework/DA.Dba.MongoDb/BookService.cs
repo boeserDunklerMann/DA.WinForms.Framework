@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DA.Dba.MongoDb
 {
-	public class BookService : DA.WinForms.Framework.Contracts.IDatabase
+	public sealed class BookService : DA.WinForms.Framework.Contracts.IDatabase, IDisposable
 	{
 		private readonly IMongoCollection<Book> _books;
 		private static readonly Lazy<BookService> lazy = new Lazy<BookService>(() => new BookService());
@@ -34,5 +34,10 @@ namespace DA.Dba.MongoDb
 		public void Remove(Book bookin) => _books.DeleteOne(book => book.Id == bookin.Id);
 
 		public void Remove(string id) => _books.DeleteOne(book => book.Id == id);
+
+		public void Dispose()
+		{
+			// nothing to do here
+		}
 	}
 }

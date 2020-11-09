@@ -1,5 +1,5 @@
 ﻿using Bookstore.Model;
-using DA.WinForms.Framework.Test.Interfaces;
+using DA.WinForms.Framework.Contracts.UI;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

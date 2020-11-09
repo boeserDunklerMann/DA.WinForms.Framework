@@ -1,6 +1,6 @@
 ﻿using Bookstore.Model;
 
-namespace DA.WinForms.Framework.Test.Interfaces
+namespace DA.WinForms.Framework.Contracts.UI
 {
 	/// <ChangeLog>
 	/// <Create Datum="08.11.2020" Entwickler="DA" />

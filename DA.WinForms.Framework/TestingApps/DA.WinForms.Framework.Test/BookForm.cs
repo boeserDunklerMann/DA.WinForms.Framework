@@ -1,6 +1,6 @@
 ﻿using Bookstore.Model;
+using DA.WinForms.Framework.Contracts.UI;
 using DA.WinForms.Framework.Model;
-using DA.WinForms.Framework.Test.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,6 +8,7 @@ namespace DA.WinForms.Framework.Test
 {
 	static class Program
 	{
+		/// <Change Datum="09.11.2020" Entwickler="DA">DependencyContainer.Dispose() added</Change>
 		/// <summary>
 		///  The main entry point for the application.
 		/// </summary>
@@ -18,6 +19,9 @@ namespace DA.WinForms.Framework.Test
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new BookForm());
+
+			// cleanup the implementations in DependencyContainer
+			Commons.DependencyContainer.Dispose();
 		}
 	}
 }
