@@ -20,6 +20,7 @@ namespace DA.WinForms.Framework.Model
 		private readonly List<PropertyInfo> _myProperties;
 		public DataClassBase()
 		{
+			// Load propertyinfos here. They won't change in runtime
 			_myProperties = GetType().GetProperties().ToList();
 		}
 
@@ -30,13 +31,13 @@ namespace DA.WinForms.Framework.Model
 		public bool Validate()
 		{
 			bool retval = true;
-			_myProperties.ForEach(tp =>
+			_myProperties.ForEach(pi =>
 			{
-				Attribute att = tp.GetCustomAttribute(typeof(Attributes.ValidValuesAttribute));
+				Attribute att = pi.GetCustomAttribute(typeof(Attributes.ValidValuesAttribute));
 				if (att != null)
 				{
 					Attributes.ValidValuesAttribute vatt = att as Attributes.ValidValuesAttribute;
-					object value = tp.GetValue(this);
+					object value = pi.GetValue(this);
 					if (value != null &&
 						(!vatt.ValidValues.ToList().Contains((string)value)))
 						retval = false;

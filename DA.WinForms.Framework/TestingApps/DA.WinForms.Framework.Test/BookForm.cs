@@ -79,7 +79,7 @@ namespace DA.WinForms.Framework.Test
 		/// <param name="books">the books</param>
 		public void DisplayBooks(IEnumerable<Book> books)
 		{
-			dgvBooks.DataSource = books.ToList();
+			dgvBooks.DataSource = books;
 		}
 
 		/// <ChangeLog>

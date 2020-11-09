@@ -1,7 +1,8 @@
 ﻿using Bookstore.Model;
-using DA.Dba.MongoDb;
 using DA.WinForms.Framework.Test.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DA.WinForms.Framework.Test.Presenter
 {
@@ -13,7 +14,8 @@ namespace DA.WinForms.Framework.Test.Presenter
 	/// </summary>
 	public sealed class BookstorePresenter
 	{
-		private readonly BookService service;
+		//private readonly BookService service;
+		private readonly Contracts.IDatabase _service;
 		private readonly IBookStore _bookStoreView;
 		private IEnumerable<Book> _allBooks;
 		private Book _selectedBook;
@@ -28,7 +30,8 @@ namespace DA.WinForms.Framework.Test.Presenter
 		public BookstorePresenter(IBookStore bookStoreView)
 		{
 			_bookStoreView = bookStoreView;
-			service = BookService.Instance;
+			_service = Commons.DependencyContainer.GetObject<Contracts.IDatabase>();
+		//	service = BookService.Instance;
 		}
 
 		/// <ChangeLog>
@@ -39,8 +42,14 @@ namespace DA.WinForms.Framework.Test.Presenter
 		/// </summary>
 		public void LoadBooks()
 		{
-			_allBooks = service.Get();
-			_bookStoreView.DisplayBooks(_allBooks);
+			// TODO: async/await
+			//Action action = () =>
+			//  {
+				  _allBooks = _service.Get();
+				  _bookStoreView.DisplayBooks(_allBooks);
+			//  };
+			//Task task = new Task(action);
+			//task.Start();
 		}
 		/// <ChangeLog>
 		/// <Create Datum="08.11.2020" Entwickler="DA" />
@@ -61,8 +70,10 @@ namespace DA.WinForms.Framework.Test.Presenter
 		/// </summary>
 		public void Save()
 		{
+			// DONE: async
+			new Task(() => _service.Update(_selectedBook.Id, _selectedBook)).Start();
 			// TODO: do some error checking
-			service.Update(_selectedBook.Id, _selectedBook);
+			//service.Update(_selectedBook.Id, _selectedBook);
 			// TODO: update the Bookstores list
 		}
 	}

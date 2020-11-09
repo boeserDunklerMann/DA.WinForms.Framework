@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DA.Dba.MongoDb
 {
-	public class BookService
+	public class BookService : DA.WinForms.Framework.Contracts.IDatabase
 	{
 		private readonly IMongoCollection<Book> _books;
 		private static readonly Lazy<BookService> lazy = new Lazy<BookService>(() => new BookService());

@@ -39,8 +39,8 @@
 			this.lbName = new System.Windows.Forms.Label();
 			this.txtAuthor = new System.Windows.Forms.TextBox();
 			this.txtTitle = new System.Windows.Forms.TextBox();
-			this.dgvBooks = new System.Windows.Forms.DataGridView();
 			this.lbBooks = new System.Windows.Forms.Label();
+			this.dgvBooks = new System.Windows.Forms.DataGridView();
 			this.gbBook.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
 			this.SuspendLayout();
@@ -152,16 +152,6 @@
 			this.txtTitle.Size = new System.Drawing.Size(100, 23);
 			this.txtTitle.TabIndex = 0;
 			// 
-			// dgvBooks
-			// 
-			this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvBooks.Location = new System.Drawing.Point(12, 29);
-			this.dgvBooks.Name = "dgvBooks";
-			this.dgvBooks.Size = new System.Drawing.Size(240, 150);
-			this.dgvBooks.TabIndex = 1;
-			this.dgvBooks.Text = "dataGridView1";
-			this.dgvBooks.Click += new System.EventHandler(this.dgvBooks_Click);
-			// 
 			// lbBooks
 			// 
 			this.lbBooks.AutoSize = true;
@@ -176,6 +166,20 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(545, 233);
+			// 
+			// dgvBooks
+			// 
+			this.dgvBooks.AllowUserToAddRows = false;
+			this.dgvBooks.AllowUserToDeleteRows = false;
+			this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvBooks.Location = new System.Drawing.Point(12, 29);
+			this.dgvBooks.Name = "dgvBooks";
+			this.dgvBooks.RowHeadersVisible = false;
+			this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvBooks.Size = new System.Drawing.Size(240, 150);
+			this.dgvBooks.TabIndex = 1;
+			this.dgvBooks.Text = "dataGridView1";
+			this.dgvBooks.Click += new System.EventHandler(this.dgvBooks_Click);
 			this.Controls.Add(this.lbBooks);
 			this.Controls.Add(this.dgvBooks);
 			this.Controls.Add(this.gbBook);

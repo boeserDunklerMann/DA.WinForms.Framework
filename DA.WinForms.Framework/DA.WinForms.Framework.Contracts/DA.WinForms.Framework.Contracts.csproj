@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.11.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DA.WinForms.Framework.Contracts\DA.WinForms.Framework.Contracts.csproj" />
     <ProjectReference Include="..\Examples\Bookstore.Model\Bookstore.Model.csproj" />
   </ItemGroup>
 

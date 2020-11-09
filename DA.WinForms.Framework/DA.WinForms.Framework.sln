@@ -9,13 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestingApps", "TestingApps"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Model", "Examples\Bookstore.Model\Bookstore.Model.csproj", "{E03E1C3F-9B31-4996-B7F4-EDCE4110F018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework.Test", "TestingApps\DA.WinForms.Framework.Test\DA.WinForms.Framework.Test.csproj", "{9BEAD855-448B-4023-8274-33CB07F9DEE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DA.WinForms.Framework.Test", "TestingApps\DA.WinForms.Framework.Test\DA.WinForms.Framework.Test.csproj", "{9BEAD855-448B-4023-8274-33CB07F9DEE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework", "DA.WinForms.Framework\DA.WinForms.Framework.csproj", "{D45F9E65-C614-47C5-8D11-07E995165573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DA.WinForms.Framework", "DA.WinForms.Framework\DA.WinForms.Framework.csproj", "{D45F9E65-C614-47C5-8D11-07E995165573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{AA3F2203-25A2-4DBC-BEAB-6C6C52DBB727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.Dba.MongoDb", "DA.Dba.MongoDb\DA.Dba.MongoDb.csproj", "{8240E539-2451-4CF5-9D71-B700D87E6CCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DA.Dba.MongoDb", "DA.Dba.MongoDb\DA.Dba.MongoDb.csproj", "{8240E539-2451-4CF5-9D71-B700D87E6CCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework.Contracts", "DA.WinForms.Framework.Contracts\DA.WinForms.Framework.Contracts.csproj", "{D35F80AF-E88B-4D18-9E22-6B0A5BCF9104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.WinForms.Framework.Commons", "DA.WinForms.Framework.Commons\DA.WinForms.Framework.Commons.csproj", "{7C0BB003-2A80-4303-8FFD-E5FE05CFAB45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8240E539-2451-4CF5-9D71-B700D87E6CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35F80AF-E88B-4D18-9E22-6B0A5BCF9104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35F80AF-E88B-4D18-9E22-6B0A5BCF9104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35F80AF-E88B-4D18-9E22-6B0A5BCF9104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35F80AF-E88B-4D18-9E22-6B0A5BCF9104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C0BB003-2A80-4303-8FFD-E5FE05CFAB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0BB003-2A80-4303-8FFD-E5FE05CFAB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0BB003-2A80-4303-8FFD-E5FE05CFAB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0BB003-2A80-4303-8FFD-E5FE05CFAB45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
