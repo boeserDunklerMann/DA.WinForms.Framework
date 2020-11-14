@@ -1,7 +1,7 @@
 ﻿using DA.WinForms.Framework.Attributes;
 using DA.WinForms.Framework.Model;
 using MongoDB.Bson.Serialization.Attributes;
-
+using Newtonsoft.Json;
 namespace Bookstore.Model
 {
 	public class Book : DataClassBase
@@ -11,7 +11,7 @@ namespace Bookstore.Model
 		public string Id { get; set; }
 
 		[BsonElement("Name")]   // used for MongoDB
-		[Newtonsoft.Json.JsonProperty("Name")]  // used for MongoDB
+		[JsonProperty("Name")]  // used for MongoDB
 		public string BookName { get; set; }
 		public string Author { get; set; }
 		public decimal Price { get; set; }

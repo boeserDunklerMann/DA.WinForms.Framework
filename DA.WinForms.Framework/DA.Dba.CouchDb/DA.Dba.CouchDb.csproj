@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MyCouch" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DA.WinForms.Framework.Contracts\DA.WinForms.Framework.Contracts.csproj" />
+    <ProjectReference Include="..\Examples\Bookstore.Model\Bookstore.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RedBranch.Hammock">
+      <HintPath>..\3rdParty\RedBranch.Hammock\RedBranch.Hammock.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

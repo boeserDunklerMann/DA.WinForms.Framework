@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DA.Dba.CouchDb\DA.Dba.CouchDb.csproj" />
     <ProjectReference Include="..\DA.Dba.MongoDb\DA.Dba.MongoDb.csproj" />
     <ProjectReference Include="..\DA.WinForms.Framework.Contracts\DA.WinForms.Framework.Contracts.csproj" />
   </ItemGroup>

@@ -44,7 +44,8 @@ namespace DA.WinForms.Framework.Commons
 		internal static void CreateBindings()
 		{
 			// TODO: get this from a config
-			Bind(typeof(Contracts.IDatabase), typeof(Dba.MongoDb.BookService));
+			//Bind(typeof(Contracts.IDatabase), typeof(Dba.MongoDb.BookService));
+			Bind(typeof(Contracts.IDatabase), typeof(Dba.CouchDb.BookService));
 		}
 
 		internal static void Bind(Type interfaceType, Type implementation)
@@ -57,7 +58,7 @@ namespace DA.WinForms.Framework.Commons
 		/// Disposes the implementations
 		/// </summary>
 		public static void Dispose()
-		{
+		{/*
 			if (_container != null)
 			{
 				foreach (Tuple<Type, Type> binding in _container)
@@ -66,7 +67,7 @@ namespace DA.WinForms.Framework.Commons
 					if (obj is IDisposable)
 						((IDisposable)obj).Dispose();
 				}
-			}
+			}*/
 		}
 	}
 }
